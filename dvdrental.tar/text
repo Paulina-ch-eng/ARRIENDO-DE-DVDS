@@ -1,0 +1,58 @@
+-- Clientes
+
+-- Insertar clientes
+
+insert into address (address_id,address, district,city_id, postal_code, phone,last_update) values (606,'1331 Usak_Boulevard','Vaud',296,'61960','348596435678','2024-09-05 09:45:30.000');
+
+insert into customer (customer_id, store_id, first_name, last_name,email, address_id,activebool,create_date,last_update,active) values (600,1,'Jonathan','Rojas','jonathan.rojas@sakilacustomer.org',606,true,'2024-09-05','2024-09-05 14:49:45.738',1);
+
+insert into address (address_id,address, district,city_id, phone,last_update) values (607, '47_MySakila_Drive', 'Alberta', 300, '449873219878', '2024-09-05 09:45:30.000');
+
+insert into customer (customer_id, store_id, first_name, last_name,email, address_id,activebool,create_date,last_update,active) values (601,1,'Alison','Cortes','alison.cortes@sakilacustomer.org',607,true,'2024-09-05','2024-09-05 14:49:45.738',1);
+
+
+-- Modificar un cliente
+update customer set first_name = 'Maria' where customer_id =1;
+update customer set email = 'jared.ely2@saikacustomer.org where customer_id=524;
+
+
+-- Eliminar un cliente
+DELETE FROM payment WHERE customer_id = 599;
+DELETE FROM rental WHERE customer_id = 599;
+delete from customer where customer_id = 599;
+
+
+-- Insertar un staff
+insert into staff (staff_id,fist_name, last_name,address_id,email,store_id, active,username,password,last_update) values (3,'Tatiana', 'Aliaga', 5, 'Tatiana.Aliaga@skilastaff.com', 3, true, 'Tati','8cb2237d0679ca88db6464eac60da96345513966','2024-09-05 16:13:11');
+
+
+-- Modificar un staff
+update staff set first_name= 'Miko'where staff_id=1;
+
+
+-- Eliminar un staff
+
+DELETE FROM rental WHERE staff_id = 3;
+
+
+-- Insertar un actor
+insert into actor (actor_id, first_name,last_name, last_update) values (201,'Carlota', 'Johnson', '2024-09-06 14:47:57');
+
+-- Modificar un actor
+update actor set first_name= 'Julieta', last_name= 'Travis' where actor_id= 1;
+
+-- Eliminar un actor
+delete from film_actor where actor_id=200;
+delete from actor where actor_id=200;
+
+Segunda pregunta
+SELECT r.rental_id, r.rental_date, r.return_date, c.customer_id, c.first_name, c.last_name, c.email FROM rental r JOIN customer c ON r.customer_id = c.customer_id WHERE EXTRACT(YEAR FROM r.rental_date) = 2005 AND EXTRACT(MONTH FROM r.rental_date) = 5;
+
+
+Tercera pregunta
+
+Select payment_id AS Número, payment_date AS Fecha, amount AS Total FROM payment ORDER BY payment_date
+
+Cuarta pregunta
+SELECT * FROM film WHERE release_year = 2006 AND rental_rate > 4.0;
+
